@@ -12,7 +12,7 @@ class Dice (private val playableLetters: String) {
     var currentLetter = ""
 
     fun nextLetter(): String {
-        var tempLetter = playableLetters[Random.nextInt(playableLetters.length)]
+        val tempLetter = playableLetters[Random.nextInt(playableLetters.length)]
         return if (playedLetters.contains(tempLetter)) {
             nextLetter()
         } else {

@@ -10,5 +10,10 @@
     <string name="customized">Customized: choose your own set of letters</string>
     <string name="customized_hint">Write the letters without spaces between them</string>
     <string name="choose_playable_letters">Choose the playable letters:</string>
+    <string name="scattergories_name">Scattergories</string>
+    <string name="whole_alphabet_name">Whole alphabet</string>
+    <string name="customized_name">Customized: </string>
+    <string name="preferences_button_description">Preferences button</string>
+
 
 </resources>
