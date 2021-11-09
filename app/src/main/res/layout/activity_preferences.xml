@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PreferencesActivity">
+
+    <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/choose_playable_letters" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkedButton="@id/rb_alphabet">
+
+        <RadioButton
+                android:id="@+id/rb_alphabet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="changeCustomEditTextVisibility"
+                android:text="@string/whole_alphabet" />
+
+        <RadioButton
+                android:id="@+id/rb_scattergories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="changeCustomEditTextVisibility"
+                android:text="@string/scattergories" />
+
+        <RadioButton
+                android:id="@+id/rb_custom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="changeCustomEditTextVisibility"
+                android:text="@string/customized" />
+    </RadioGroup>
+
+    <EditText
+            android:id="@+id/et_custom_letters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="2dp"
+            android:ems="10"
+            android:hint="@string/customized_hint"
+            android:inputType="textPersonName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="vertical">
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="@string/apply"
+                android:onClick="savePreferences" />
+    </LinearLayout>
+
+</LinearLayout>

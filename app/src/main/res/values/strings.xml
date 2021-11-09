@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">LettersDice</string>
+    <string name="roll_dice">Roll the dice</string>
+    <string name="all_letters_played">All the letters have been played!</string>
+    <string name="played_letters">Letters played:</string>
+    <string name="apply">Apply</string>
+    <string name="preferences">Preferences</string>
+    <string name="whole_alphabet">Whole alphabet: A-Z</string>
+    <string name="scattergories">Scattergories: every letter except Q, U, V, X, Y, Z</string>
+    <string name="customized">Customized: choose your own set of letters</string>
+    <string name="customized_hint">Write the letters without spaces between them</string>
+    <string name="choose_playable_letters">Choose the playable letters:</string>
+
+</resources>
