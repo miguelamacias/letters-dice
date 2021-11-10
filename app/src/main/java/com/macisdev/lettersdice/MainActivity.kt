@@ -53,8 +53,10 @@ class MainActivity : AppCompatActivity() {
 
 			//Animation of the ImageView
 			gui.rollBtn.isEnabled = false
+			gui.letterImg.isEnabled = false
 			gui.letterImg.animate().rotationXBy(720f).duration = 1200
-			gui.letterImg.animate().rotationYBy(-720f).setDuration(1200).withEndAction { gui.rollBtn.isEnabled = true }
+			gui.letterImg.animate().rotationYBy(-720f).setDuration(1200)
+				.withEndAction { gui.rollBtn.isEnabled = true; gui.letterImg.isEnabled = true}
 			gui.rollBtn.animate().rotation(0f).setDuration(600).withEndAction { gui.letterImg.setImageResource(img)
 				gui.tvPlayedLetters.append(letter.uppercase())}
 

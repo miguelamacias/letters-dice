@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dado de letras</string>
+    <string name="roll_dice">TIRAR DADO</string>
+    <string name="all_letters_played">¡Todas las letras se han jugado!</string>
+    <string name="played_letters">Letras jugadas:</string>
+    <string name="apply">Aplicar</string>
+    <string name="preferences">Preferencias</string>
+    <string name="whole_alphabet">Abecedario completo: A-Z</string>
+    <string name="scattergories">Scattergories: abecedario completo excepto Q, U, V, X, Y, Z</string>
+    <string name="customized">Personalizado: Escoge tus letras</string>
+    <string name="customized_hint">Introduce las letras sin espacios entre ellas</string>
+    <string name="choose_playable_letters">Escoge las letras que se pueden jugar:</string>
+    <string name="scattergories_name">Scattergories</string>
+    <string name="whole_alphabet_name">Abecedario completo</string>
+    <string name="customized_name">Personalizado:</string>
+    <string name="dice_mode">Modo del dado-</string>
+    <string name="only_letters_error">Error: solo se admiten letras</string>
+</resources>

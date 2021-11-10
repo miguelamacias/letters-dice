@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LettersDice</string>
-    <string name="roll_dice">Roll the dice</string>
+    <string name="roll_dice">ROLL THE DICE</string>
     <string name="all_letters_played">All the letters have been played!</string>
     <string name="played_letters">Letters played:</string>
     <string name="apply">Apply</string>
@@ -13,9 +13,6 @@
     <string name="scattergories_name">Scattergories</string>
     <string name="whole_alphabet_name">Whole alphabet</string>
     <string name="customized_name">Customized: </string>
-    <string name="preferences_button_description">Preferences button</string>
     <string name="dice_mode">Dice mode -</string>
     <string name="only_letters_error">Error: only letters accepted</string>
-
-
 </resources>
