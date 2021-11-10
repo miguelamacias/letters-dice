@@ -3,11 +3,14 @@ package com.macisdev.lettersdice
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.preference.PreferenceManager
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
@@ -20,6 +23,9 @@ class MainActivity : AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.activity_main)
 
+		val toolbar = findViewById<Toolbar>(R.id.toolbar)
+		setSupportActionBar(toolbar)
+
 		//Configure the dice
 		val playableLettersContent = PreferenceManager.getDefaultSharedPreferences(this)
 			.getString(PreferencesActivity.PREFERENCES_PLAYABLE_LETTERS_CONTENT, Dice.FULL_ALPHABET)
@@ -30,9 +36,9 @@ class MainActivity : AppCompatActivity() {
 		val playableLettersName = PreferenceManager.getDefaultSharedPreferences(this)
 			.getString(PreferencesActivity.PREFERENCES_PLAYABLE_LETTERS_NAME, getString(R.string.whole_alphabet_name))
 		tvDiceMode.text = if (playableLettersName == getString(R.string.customized_name)) {
-			"$playableLettersName ${playableLettersContent.uppercase()}"
+			"${getString(R.string.dice_mode)} $playableLettersName ${playableLettersContent.uppercase()}"
 		} else {
-			playableLettersName
+			"${getString(R.string.dice_mode)} $playableLettersName"
 		}
 
 		//Ads
@@ -68,9 +74,19 @@ class MainActivity : AppCompatActivity() {
 		}
 	}
 
-	//Called from the "open preferences button"
-	@Suppress("UNUSED_PARAMETER")
-	fun openPreferences(v: View) {
+	private fun openPreferences() {
 		startActivity(Intent(this, PreferencesActivity::class.java))
+	}
+
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		menuInflater.inflate(R.menu.main, menu)
+		return super.onCreateOptionsMenu(menu)
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		when (item.itemId) {
+			R.id.menu_preferences -> openPreferences()
+		}
+		return super.onOptionsItemSelected(item)
 	}
 }

@@ -34,7 +34,7 @@ class PreferencesActivity : AppCompatActivity() {
 		//Configure the GUI according to the saved preferences
 		preferences = PreferenceManager.getDefaultSharedPreferences(this)
 		val checkedRbtn = findViewById<RadioButton>(preferences.getInt(PREFERENCES_CHECKED_RBTN, R.id.rb_alphabet))
-		checkedRbtn.isChecked = true
+		checkedRbtn?.isChecked = true
 		etCustomLetters.isVisible = preferences.getBoolean(PREFERENCES_EDIT_TEXT_VISIBLE, false)
 
 		if (etCustomLetters.isVisible) {
