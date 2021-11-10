@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import androidx.core.content.edit
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.preference.PreferenceManager
 
@@ -59,14 +60,19 @@ class PreferencesActivity : AppCompatActivity() {
 			else -> ""
 		}
 
-		preferences.edit{
-			putString(PREFERENCES_PLAYABLE_LETTERS_CONTENT, playableLettersContent)
-			putString(PREFERENCES_PLAYABLE_LETTERS_NAME, playableLettersName)
-			putInt(PREFERENCES_CHECKED_RBTN, radioGroup.checkedRadioButtonId)
-			putBoolean(PREFERENCES_EDIT_TEXT_VISIBLE, etCustomLetters.isVisible)
-		}
+		if (playableLettersContent.isNotBlank() && playableLettersContent.all { it.isLetter() }) {
+			preferences.edit{
+				putString(PREFERENCES_PLAYABLE_LETTERS_CONTENT, playableLettersContent)
+				putString(PREFERENCES_PLAYABLE_LETTERS_NAME, playableLettersName)
+				putInt(PREFERENCES_CHECKED_RBTN, radioGroup.checkedRadioButtonId)
+				putBoolean(PREFERENCES_EDIT_TEXT_VISIBLE, etCustomLetters.isVisible)
+			}
 
-		startActivity(Intent(this, MainActivity::class.java))
+			startActivity(Intent(this, MainActivity::class.java))
+
+		} else {
+			etCustomLetters.error = getString(R.string.only_letters_error)
+		}
 	}
 
 	//Called when the radio buttons are clicked

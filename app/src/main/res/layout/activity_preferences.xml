@@ -10,7 +10,8 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/choose_playable_letters" />
+            android:text="@string/choose_playable_letters"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -23,21 +24,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="changeCustomEditTextVisibility"
-                android:text="@string/whole_alphabet" />
+                android:text="@string/whole_alphabet"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <RadioButton
                 android:id="@+id/rb_scattergories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="changeCustomEditTextVisibility"
-                android:text="@string/scattergories" />
+                android:text="@string/scattergories"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
 
         <RadioButton
                 android:id="@+id/rb_custom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="changeCustomEditTextVisibility"
-                android:text="@string/customized" />
+                android:text="@string/customized"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"/>
     </RadioGroup>
 
     <EditText
@@ -49,7 +53,7 @@
             android:ems="10"
             android:hint="@string/customized_hint"
             android:inputType="textPersonName"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:visibility="invisible" />
 
     <LinearLayout
