@@ -63,9 +63,9 @@ class MainActivity : AppCompatActivity() {
 			rollBtn.isEnabled = false
 			letterImgV.animate().rotationXBy(720f).duration = 1200
 			letterImgV.animate().rotationYBy(-720f).setDuration(1200).withEndAction { rollBtn.isEnabled = true }
-			rollBtn.animate().rotation(0f).setDuration(600).withEndAction { letterImgV.setImageResource(img) }
+			rollBtn.animate().rotation(0f).setDuration(600).withEndAction { letterImgV.setImageResource(img)
+				tvPlayedLetters.append(letter.uppercase())}
 
-			tvPlayedLetters.append(letter.uppercase())
 		} else {
 			Toast.makeText(this, R.string.all_letters_played, Toast.LENGTH_SHORT).show()
 			letterImgV.setImageResource(R.drawable.icon_small)
