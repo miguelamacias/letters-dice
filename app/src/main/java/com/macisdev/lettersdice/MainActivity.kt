@@ -1,30 +1,27 @@
 package com.macisdev.lettersdice
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.widget.Toolbar
+import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import com.macisdev.lettersdice.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 	private lateinit var dice: Dice
+	private lateinit var gui: ActivityMainBinding
 
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
-		setContentView(R.layout.activity_main)
+		gui = ActivityMainBinding.inflate(layoutInflater)
+		setContentView(gui.root)
 
-		val toolbar = findViewById<Toolbar>(R.id.toolbar)
-		setSupportActionBar(toolbar)
+		setSupportActionBar(gui.toolbar)
 
 		//Configure the dice
 		val playableLettersContent = PreferenceManager.getDefaultSharedPreferences(this)
@@ -32,10 +29,9 @@ class MainActivity : AppCompatActivity() {
 		dice = Dice(playableLettersContent!!)
 
 		//Configure the dice mode text view
-		val tvDiceMode = findViewById<TextView>(R.id.tv_dice_mode)
 		val playableLettersName = PreferenceManager.getDefaultSharedPreferences(this)
 			.getString(PreferencesActivity.PREFERENCES_PLAYABLE_LETTERS_NAME, getString(R.string.whole_alphabet_name))
-		tvDiceMode.text = if (playableLettersName == getString(R.string.customized_name)) {
+		gui.tvDiceMode.text = if (playableLettersName == getString(R.string.customized_name)) {
 			"${getString(R.string.dice_mode)} $playableLettersName ${playableLettersContent.uppercase()}"
 		} else {
 			"${getString(R.string.dice_mode)} $playableLettersName"
@@ -43,33 +39,29 @@ class MainActivity : AppCompatActivity() {
 
 		//Ads
 		MobileAds.initialize(this) {}
-		val adView = findViewById<AdView>(R.id.ad_view)
 		val adRequest = AdRequest.Builder().build()
-		adView.loadAd(adRequest)
+		gui.adView.loadAd(adRequest)
 	}
 
 	//Called from the "roll dice button"
 	@Suppress("UNUSED_PARAMETER")
 	fun rollDice(v: View) {
-		val letterImgV = findViewById<ImageView>(R.id.letter_img)
-		val tvPlayedLetters = findViewById<TextView>(R.id.tv_played_letters)
-		val rollBtn = findViewById<Button>(R.id.roll_btn)
 
 		if (dice.hasNextLetter()) {
 			val letter = dice.nextLetter()
 			val img = resources.getIdentifier(letter, "drawable", packageName)
 
 			//Animation of the ImageView
-			rollBtn.isEnabled = false
-			letterImgV.animate().rotationXBy(720f).duration = 1200
-			letterImgV.animate().rotationYBy(-720f).setDuration(1200).withEndAction { rollBtn.isEnabled = true }
-			rollBtn.animate().rotation(0f).setDuration(600).withEndAction { letterImgV.setImageResource(img)
-				tvPlayedLetters.append(letter.uppercase())}
+			gui.rollBtn.isEnabled = false
+			gui.letterImg.animate().rotationXBy(720f).duration = 1200
+			gui.letterImg.animate().rotationYBy(-720f).setDuration(1200).withEndAction { gui.rollBtn.isEnabled = true }
+			gui.rollBtn.animate().rotation(0f).setDuration(600).withEndAction { gui.letterImg.setImageResource(img)
+				gui.tvPlayedLetters.append(letter.uppercase())}
 
 		} else {
 			Toast.makeText(this, R.string.all_letters_played, Toast.LENGTH_SHORT).show()
-			letterImgV.setImageResource(R.drawable.icon_small)
-			tvPlayedLetters.text = ""
+			gui.letterImg.setImageResource(R.drawable.icon_small)
+			gui.tvPlayedLetters.text = ""
 			dice.reset()
 		}
 	}
