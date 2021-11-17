@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
 		} else {
 			Toast.makeText(this, R.string.all_letters_played, Toast.LENGTH_SHORT).show()
-			gui.letterImg.setImageResource(R.drawable.icon_small)
+			gui.letterImg.setImageResource(R.drawable.empty_dice_img)
 			gui.tvPlayedLetters.text = ""
 			dice.reset()
 		}

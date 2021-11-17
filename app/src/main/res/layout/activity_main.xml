@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="80dp"
-            android:src="@drawable/icon_small"
+            android:src="@drawable/empty_dice_img"
             android:onClick="rollDice" />
 
     <Button

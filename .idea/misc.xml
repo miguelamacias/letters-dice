@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.39068514241724406" />
+        <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/drawable/ic_baseline_settings_24.xml" value="0.39068514241724406" />
+        <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/drawable/ic_launcher_background.xml" value="0.39068514241724406" />
+        <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/drawable/ic_round_error_24.xml" value="0.39068514241724406" />
         <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/layout/activity_preferences.xml" value="0.5083333333333333" />
         <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/menu/menu_main.xml" value="0.5083333333333333" />
+        <entry key="..\:/Workspaces/AndroidWorkspace/LettersDice/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.39068514241724406" />
       </map>
     </option>
   </component>
