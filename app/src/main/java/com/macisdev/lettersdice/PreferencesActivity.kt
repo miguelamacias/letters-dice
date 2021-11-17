@@ -4,7 +4,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.core.view.isVisible
@@ -29,8 +28,7 @@ class PreferencesActivity : AppCompatActivity() {
 
 		//Configure the GUI according to the saved preferences
 		preferences = PreferenceManager.getDefaultSharedPreferences(this)
-		val checkedRbtn = findViewById<RadioButton>(preferences.getInt(PREFERENCES_CHECKED_RBTN, R.id.rbAlphabet))
-		checkedRbtn?.isChecked = true
+		gui.radioGroup.check(preferences.getInt(PREFERENCES_CHECKED_RBTN, R.id.rbAlphabet))
 		gui.etCustomLetters.isVisible = preferences.getBoolean(PREFERENCES_EDIT_TEXT_VISIBLE, false)
 
 		if (gui.etCustomLetters.isVisible) {
@@ -41,7 +39,7 @@ class PreferencesActivity : AppCompatActivity() {
 	//Called when the apply button is clicked
 	@Suppress("UNUSED_PARAMETER")
 	fun savePreferences(v: View) {
-		val playableLettersContent = when (gui.radioGroup.checkedRadioButtonId) {
+		var playableLettersContent = when (gui.radioGroup.checkedRadioButtonId) {
 			R.id.rbAlphabet -> Dice.FULL_ALPHABET
 			R.id.rbScattergories -> Dice.SCATTERGORIES_LETTERS
 			R.id.rbCustom -> gui.etCustomLetters.text.toString().lowercase()
@@ -56,7 +54,10 @@ class PreferencesActivity : AppCompatActivity() {
 		}
 
 		if (playableLettersContent.isNotBlank() && playableLettersContent.all { it.isLetter() }) {
-			preferences.edit{
+			//Remove duplicated characters
+			playableLettersContent = String(playableLettersContent.toCharArray().distinct().toCharArray())
+
+			preferences.edit {
 				putString(PREFERENCES_PLAYABLE_LETTERS_CONTENT, playableLettersContent)
 				putString(PREFERENCES_PLAYABLE_LETTERS_NAME, playableLettersName)
 				putInt(PREFERENCES_CHECKED_RBTN, gui.radioGroup.checkedRadioButtonId)
