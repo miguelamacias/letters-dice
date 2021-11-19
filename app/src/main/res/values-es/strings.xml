@@ -14,6 +14,6 @@
     <string name="scattergories_name">Scattergories</string>
     <string name="whole_alphabet_name">Abecedario completo</string>
     <string name="customized_name">Personalizado:</string>
-    <string name="dice_mode">Modo del dado-</string>
+    <string name="dice_mode">Modo del dado - %s %s</string>
     <string name="only_letters_error">Error: solo se admiten letras</string>
 </resources>

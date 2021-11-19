@@ -40,8 +40,8 @@ class PreferencesActivity : AppCompatActivity() {
 	@Suppress("UNUSED_PARAMETER")
 	fun savePreferences(v: View) {
 		var playableLettersContent = when (gui.radioGroup.checkedRadioButtonId) {
-			R.id.rbAlphabet -> Dice.FULL_ALPHABET
-			R.id.rbScattergories -> Dice.SCATTERGORIES_LETTERS
+			R.id.rbAlphabet -> DiceViewModel.FULL_ALPHABET
+			R.id.rbScattergories -> DiceViewModel.SCATTERGORIES_LETTERS
 			R.id.rbCustom -> gui.etCustomLetters.text.toString().lowercase()
 			else -> ""
 		}

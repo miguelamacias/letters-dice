@@ -13,6 +13,6 @@
     <string name="scattergories_name">Scattergories</string>
     <string name="whole_alphabet_name">Whole alphabet</string>
     <string name="customized_name">Customized: </string>
-    <string name="dice_mode">Dice mode -</string>
+    <string name="dice_mode">Dice mode - %s %s</string>
     <string name="only_letters_error">Error: only letters accepted</string>
 </resources>
