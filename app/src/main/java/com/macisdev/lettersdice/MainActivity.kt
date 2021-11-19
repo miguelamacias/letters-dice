@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
 		gui.letterImg.setImageResource(if (img != 0) img else R.drawable.empty_dice_img)
 		gui.tvPlayedLetters.text = dice.playedLetters.uppercase()
 
-
 		//Configure the dice mode text view
 		val playableLettersName = PreferenceManager.getDefaultSharedPreferences(this)
 			.getString(PreferencesActivity.PREFERENCES_PLAYABLE_LETTERS_NAME, getString(R.string.whole_alphabet_name))
@@ -56,6 +55,7 @@ class MainActivity : AppCompatActivity() {
 		if (dice.hasNextLetter()) {
 			val letter = dice.nextLetter()
 			val img = resources.getIdentifier(letter, "drawable", packageName)
+			gui.letterImg.contentDescription = letter
 
 			//Animation of the ImageView
 			gui.rollBtn.isEnabled = false

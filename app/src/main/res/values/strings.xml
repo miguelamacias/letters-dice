@@ -15,4 +15,5 @@
     <string name="customized_name">Customized: </string>
     <string name="dice_mode">Dice mode - %s %s</string>
     <string name="only_letters_error">Error: only letters accepted</string>
+    <string name="empty_dice">Empty dice placeholder</string>
 </resources>

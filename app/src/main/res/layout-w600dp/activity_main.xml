@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:ads="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarPopupTheme"
+            android:minHeight="?attr/actionBarSize"
+            tools:title="@string/app_name"
+            android:id="@+id/toolbar" />
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvDiceMode"
+            tools:text="Dice mode"
+            android:gravity="end"
+            android:layout_marginEnd="10dp" />
+
+    <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:gravity="center_horizontal"
+            android:layout_weight="1">
+
+        <ImageView
+                android:id="@+id/letterImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/empty_dice_img"
+                android:onClick="rollDice"
+                android:layout_marginEnd="80dp"
+                android:contentDescription="@string/empty_dice" />
+
+        <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:onClick="rollDice"
+                android:text="@string/roll_dice"
+                android:minHeight="48dp"
+                android:padding="18dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:id="@+id/rollBtn"
+                android:layout_marginStart="80dp" />
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+        <TextView
+                android:text="@string/played_letters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal" />
+
+        <TextView
+                android:id="@+id/tvPlayedLetters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                tools:text="ABCDEF"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <com.google.android.gms.ads.AdView
+
+                android:id="@+id/adView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:adSize="LARGE_BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+                android:layout_marginTop="6dp" />
+
+        <!--real ad: ca-app-pub-3884237692356988/5063728682 -->
+    </LinearLayout>
+
+</LinearLayout>

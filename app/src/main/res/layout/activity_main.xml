@@ -39,7 +39,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="80dp"
             android:src="@drawable/empty_dice_img"
-            android:onClick="rollDice" />
+            android:onClick="rollDice"
+            android:contentDescription="@string/empty_dice"/>
 
     <Button
             android:layout_width="wrap_content"

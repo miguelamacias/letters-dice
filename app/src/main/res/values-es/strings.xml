@@ -16,4 +16,5 @@
     <string name="customized_name">Personalizado:</string>
     <string name="dice_mode">Modo del dado - %s %s</string>
     <string name="only_letters_error">Error: solo se admiten letras</string>
+    <string name="empty_dice">Dado vacío</string>
 </resources>
